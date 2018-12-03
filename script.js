@@ -7,4 +7,11 @@ $(document).ready(function() {
     //And insert the response
     $('#sentences').html(response)
   })
+  $.get('this_doesnt_exist.html', function(data) {
+    //This won't call because the .html file required doesn't exist
+    doSomethingGood()
+  }).fail(function(error) {
+    //This is called when an error occurs
+    consol.log('Something went wrong: ' + error.statusText)
+  })
 })
